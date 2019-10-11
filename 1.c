@@ -1,35 +1,22 @@
         /* to find the GCD of two numbers */
         #include <stdio.h>
-        #include <stdlib.h>
+        // Using recursion
+        int gcd ( int a, int b)
+        {
+               if(b!=0)
+                       return gcd(b,a%b);
+               else
+                       return a;
+        }
         int main()
         {
 
 
-        int a,b,max,min;
+        int a,b;
         scanf ("%d %d", &a, &b);
         a = abs(a); b = abs(b);
-        int t;
 
-        if (a>b)
-            {max=a;min=b;}
-        else
-            {max=b;min=a;}
-
-        if (a==0 && b==0)
-        printf("Invalid input");
-
-       else
-        {
-         while (min !=0)
-         {
-
-             t = max % min;
-             max = min;
-             min = t;
-         }
-
-         printf ("%d", max);
-        }
+        printf("%d",gcd(a,b));
          return 0;
 
         }
